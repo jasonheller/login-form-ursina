@@ -1,22 +1,12 @@
 from ursina import *
 main = Ursina()
 
-window.fps_counter.enabled = True
+window.fps_counter.enabled = False
 window.exit_button.visible = False
 window.borderless = False
 window.show_ursina_splash = True
 window.fullscreen = False
-
-bg = load_texture('bg.png')
-
-class Background(Entity):
-    def __init__(self):
-        super().__init__(
-            model = 'quad',
-            texture = bg,
-            parent = scene,
-            scale = 15
-        )
+window.color = color.gray
 
 # Login - Button
 login = Button(text='Login', color=color.black, model='quad', collider='quad', origin=(4,1.8,0), scale=0.08)
@@ -32,5 +22,4 @@ username = InputField(position=(0,-0.05,0), hide_content=False)
 # Text - Title
 text3 = Text(text='Login Form', color=color.white, origin=(0,-8,0), scale=2)
 
-background = Background()
 main.run()
